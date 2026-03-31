@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;600;700&family=Sora:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-body text-text-dark bg-gradient-mesh bg-fixed bg-cover;
+    background-size: 400% 400%;
+    animation: gradientShift 12s ease infinite;
+    position: relative;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/25 backdrop-blur-glass border border-white/45 rounded-2xl;
+  }
+
+  .glass-lg {
+    @apply bg-white/30 backdrop-blur-glass-lg border border-white/50 rounded-3xl;
+  }
+
+  .glass-card {
+    @apply glass p-6 shadow-glass transition-all duration-300 hover:shadow-glass-lg hover:-translate-y-1.5;
+  }
+
+  .btn-primary {
+    @apply relative px-8 py-4 bg-gradient-to-r from-primary-500 to-secondary-500 text-white font-semibold rounded-xl cursor-pointer transition-all duration-200 overflow-hidden;
+  }
+
+  .btn-primary:hover {
+    @apply -translate-y-0.5 shadow-lg;
+  }
+
+  .btn-primary:active {
+    @apply scale-95;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 border border-white/50 text-text-dark font-medium rounded-xl cursor-pointer transition-all duration-200 bg-transparent hover:bg-white/40;
+  }
+
+  .input-glass {
+    @apply w-full bg-white/50 border border-white/60 rounded-xl px-4 py-3 font-body text-text-dark placeholder-text-muted/60 transition-all duration-200 focus:outline-none focus:border-primary-500 focus:bg-white/75 focus:shadow-glow;
+  }
+
+  .nav-item {
+    @apply flex items-center gap-3 px-5 py-3 rounded-xl text-text-muted font-medium cursor-pointer transition-all duration-200 hover:bg-primary-500/10 hover:text-primary-500 hover:translate-x-1;
+  }
+
+  .nav-item.active {
+    @apply bg-gradient-to-r from-primary-500 to-secondary-500 text-white shadow-lg;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold transition-all duration-200;
+  }
+
+  .badge-easy {
+    @apply bg-emerald-500/20 text-emerald-700 border border-emerald-500/40;
+  }
+
+  .badge-medium {
+    @apply bg-amber-500/20 text-amber-700 border border-amber-500/40;
+  }
+
+  .badge-hard {
+    @apply bg-red-500/20 text-red-700 border border-red-500/40;
+  }
+}
+
+@keyframes float-orb-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(60px, -40px) scale(1.1); }
+  50% { transform: translate(40px, 60px) scale(0.9); }
+  75% { transform: translate(-50px, 30px) scale(1.05); }
+}
+
+@keyframes float-orb-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-80px, 50px) scale(1.15); }
+  66% { transform: translate(70px, -60px) scale(0.85); }
+}
+
+@keyframes float-orb-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40% { transform: translate(90px, -70px) scale(0.95); }
+  80% { transform: translate(-60px, -50px) scale(1.1); }
+}
+
+@keyframes float-orb-4 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  30% { transform: translate(50px, 80px) scale(1.08); }
+  60% { transform: translate(-100px, 20px) scale(0.92); }
+}
+
+@keyframes float-orb-5 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  45% { transform: translate(-70px, -80px) scale(1.12); }
+  90% { transform: translate(80px, 50px) scale(0.88); }
+}
+
+@keyframes float-orb-6 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  35% { transform: translate(100px, 40px) scale(0.9); }
+  70% { transform: translate(-50px, -70px) scale(1.06); }
+}
+
+.orb-1 { animation: float-orb-1 18s ease-in-out infinite; }
+.orb-2 { animation: float-orb-2 22s ease-in-out infinite 2s; }
+.orb-3 { animation: float-orb-3 26s ease-in-out infinite 4s; }
+.orb-4 { animation: float-orb-4 20s ease-in-out infinite 1s; }
+.orb-5 { animation: float-orb-5 24s ease-in-out infinite 3s; }
+.orb-6 { animation: float-orb-6 28s ease-in-out infinite 5s; }
+
+.grain {
+  background-image:
+    url('data:image/svg+xml;utf8,<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise"/></filter><rect width="400" height="400" fill="%23c8f0ea" filter="url(%23noiseFilter)"/></svg>');
+  opacity: 0.04;
+  pointer-events: none;
+}
+/* --- ULTRA-REALISTIC HANDWRITTEN NOTES (FIXED SIZE) --- */
+@import url('https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap');
+
+:root {
+  /* Default: Zoomed Out (Fits more text) */
+  --note-line-height: 1.45rem;
+  --note-font-size: 1.3rem;
+  --note-h1-size: 1.8rem;
+  --note-h2-size: 1.6rem;
+}
+
+.zoomed-in {
+  /* Zoomed In (Easier to read, less fits on page) */
+  --note-line-height: 2rem;
+  --note-font-size: 1.8rem;
+  --note-h1-size: 2.4rem;
+  --note-h2-size: 2rem;
+}
+
+.font-handwritten {
+  font-family: 'Just Another Hand', cursive;
+  letter-spacing: 0.5px;
+  color: #1e293b;
+  font-size: var(--note-font-size);
+  line-height: var(--note-line-height) !important;
+  transition: all 0.3s ease; /* Smooth animation when zooming */
+}
+.real-notebook-paper {
+  background-color: #fdfcf4;
+  background-image:
+    linear-gradient(90deg, transparent 40px, #ef444450 40px, #ef444450 42px, transparent 42px),
+    linear-gradient(#3b82f640 1px, transparent 1px);
+  background-size: 100% 100%, 100% 2rem; 
+  background-position: 0 0, 0 2rem;
+  line-height: 2rem !important; 
+  padding-left: 55px !important;
+  padding-right: 15px;
+  
+  padding-bottom: 4rem !important; /* Forces a large blank space at the bottom */
+  overflow-y: auto !important;     /* Allows scrolling inside the page if AI writes too much */
+  overflow-x: hidden;
+}
+
+.real-notebook-paper::-webkit-scrollbar {
+  width: 4px;
+}
+.real-notebook-paper::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+
+/* Structural Tags - Locked to variables for alignment! */
+.note-h1 { font-size: var(--note-h1-size); color: #0f172a; display: block; line-height: var(--note-line-height); margin: 0; transition: all 0.3s ease; }
+.note-h2 { font-size: var(--note-h2-size); color: #1e3a8a; display: block; line-height: var(--note-line-height); margin: 0; transition: all 0.3s ease; }
+.note-bullet { display: block; position: relative; padding-left: 15px; line-height: var(--note-line-height); margin: 0; }
+.note-bullet::before { content: "-"; position: absolute; left: 0; }
+
+.note-box {
+  display: block;
+  border: 2px solid #0f172a;
+  color: #0f172a;
+  padding: 0 0.75rem;
+  margin: var(--note-line-height) 0; /* Keeps rhythm perfect */
+  border-radius: 4px;
+  line-height: var(--note-line-height) !important; 
+}
+.note-box::before { content: "Note* "; text-decoration: underline; }
+
+.note-pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: var(--note-line-height) 0; }
+.note-pro { border: 2px dashed #22c55e; padding: 0 0.5rem; border-radius: 6px; line-height: var(--note-line-height) !important; }
+.note-pro::before { content: "✅ Pros: "; color: #166534; display: block; }
+.note-con { border: 2px dashed #ef4444; padding: 0 0.5rem; border-radius: 6px; line-height: var(--note-line-height) !important; }
+.note-con::before { content: "❌ Cons: "; color: #991b1b; display: block; }
+
+/* Timeline, Analogy, Flowchart */
+.note-timeline { border-left: 2px solid #94a3b8; padding-left: 1rem; margin: 0; line-height: 2rem !important; }
+.note-timeline-item { position: relative; display: block; }
+.note-timeline-item::before { content: "•"; position: absolute; left: -1.35rem; }
+.note-analogy { display: block; color: #4338ca; margin: 0; line-height: 2rem !important; }
+.note-analogy::before { content: "💡 Analogy: "; font-weight: bold; }
+.note-flowchart { display: block; margin: 0; line-height: 2rem !important; text-align: center; }
+
+/* Highlighters */
+.hl-pink { background: rgba(244, 114, 182, 0.4); padding: 0 2px; border-radius: 2px; }
+.hl-blue { background: rgba(56, 189, 248, 0.4); padding: 0 2px; border-radius: 2px; }
+
+/* 3D Book Constraints */
+.book-container { perspective: 1500px; transform-style: preserve-3d; position: relative; height: 100%; width: 100%; }
+.book-page { transform-origin: left center; transition: transform 0.6s, opacity 0.5s; backface-visibility: hidden; }
+.book-page.flipped { transform: rotateY(-180deg); opacity: 0; pointer-events: none; }
